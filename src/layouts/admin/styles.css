@@ -15,6 +15,8 @@ nav {
   justify-items: center;
   align-items: center;
   border-bottom: 1px solid rgb(242, 247, 248);
+  /* layout untuk event sidebar digeser ke kiri */
+  transition: padding-left ease-in 0.5s;
 }
 
 .navbar__content {
@@ -23,7 +25,21 @@ nav {
   align-items: center;
   width: calc(100% - 280px);
   box-sizing: border-box;
+  /* layout untuk event sidebar digeser ke kiri */
+  transition: width ease-in 0.5s;
 }
+
+/* layout untuk event sidebar digeser ke kiri */
+nav.toggle {
+  padding-left: 0;
+  transition: padding-left ease-out 0.5s;
+}
+
+nav.toggle .navbar__content {
+  width: 100%;
+  transition: width ease-out 0.5s;
+}
+/* ------------------------------ */
 
 .navbar__profile {
   display: flex;
@@ -88,7 +104,18 @@ aside {
   align-items: flex-start;
   width: 100%;
   flex-direction: column;
+  /* layout untuk event sidebar digeser ke kiri */
+  margin-left: 0;
+  transition: margin-left ease-in 0.5s;
 }
+
+/* layout untuk event sidebar digeser ke kiri */
+/* atribute aside dengen value toggle */
+aside.toggle {
+  margin-left: -280px;
+  transition: margin-left ease-out 0.5s;
+}
+/* ------------------------------ */
 
 aside .brand {
   height: 100%;
@@ -153,4 +180,13 @@ main {
   padding-left: 280px;
   padding-top: 60px;
   background: rgb(242, 247, 248);
+  /* layout untuk event sidebar digeser ke kiri */
+  transition: padding-left ease-in 0.5s;
 }
+
+/* layout untuk event sidebar digeser ke kiri */
+main.toggle {
+  padding-left: 0;
+  transition: padding-left ease-out 0.5s;
+}
+/* ------------------------------ */

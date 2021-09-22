@@ -3,13 +3,15 @@ import {
   useLocation,
 } from 'react-router-dom';
 
-export default function Sidebar() {
+import PropTypes from 'prop-types';
+
+export default function Sidebar({ isHideSidebar }) {
   const { pathname } = useLocation();
 
   const activeMenu = (currentUrl, urlPath) => (currentUrl === urlPath ? 'active' : '');
 
   return (
-    <aside>
+    <aside className={isHideSidebar ? 'toggle' : ''}>
       <div className="brand">
         <span className="brand__title">Frontend</span>
         &nbsp;Course
@@ -77,3 +79,11 @@ export default function Sidebar() {
     </aside>
   );
 }
+
+Sidebar.propTypes = {
+  isHideSidebar: PropTypes.bool,
+};
+
+Sidebar.defaultProps = {
+  isHideSidebar: false,
+};

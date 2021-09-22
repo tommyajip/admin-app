@@ -10,6 +10,7 @@ export const useAdminLayoutContext = () => useContext(AdminLayoutContext);
 
 export default function AdminLayout({ children }) {
   const [data, setData] = useState();
+  const [hideSidebar, setHideSidebar] = useState(false);
   return (
     <AdminLayoutContext.Provider value={{
       data,
@@ -17,9 +18,12 @@ export default function AdminLayout({ children }) {
     }}
     >
       <section className="admin__app">
-        <Navbar />
-        <Sidebar />
-        <main>
+        <Navbar
+          onHideSidebar={() => setHideSidebar(!hideSidebar)}
+          isHideSidebar={hideSidebar}
+        />
+        <Sidebar isHideSidebar={hideSidebar} />
+        <main className={hideSidebar ? 'toggle' : ''}>
           {children}
         </main>
       </section>
